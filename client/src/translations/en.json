@@ -1,0 +1,20 @@
+{
+  "appName": "Migrant Health Connect",
+  "doctorLogin": "Doctor Login",
+  "username": "Username",
+  "password": "Password",
+  "login": "Login",
+  "govtDashboard": "Government Dashboard",
+  "doctorDashboard": "Doctor Dashboard",
+  "scanQRCode": "Scan Worker QR Code",
+  "orEnterID": "or enter Worker ID",
+  "workerId": "Worker ID",
+  "search": "Search",
+  "registerNewWorker": "Register New Worker",
+  "notifiableDiseaseAlerts": "Notifiable Disease Alerts",
+  "disease": "Disease",
+  "location": "Location",
+  "reportedOn": "Reported On",
+  "noAlerts": "No new alerts.",
+  "healthCard": "Health Card"
+}
