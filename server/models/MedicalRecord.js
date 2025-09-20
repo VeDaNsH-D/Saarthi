@@ -11,8 +11,17 @@ const MedicalRecordSchema = new Schema({
         dosage: String,
         duration: String
     }],
+    // New field to store the translated prescription
+    translatedPrescription: {
+        language: String, // e.g., 'bn' for Bengali
+        items: [{
+            medicine: String,
+            dosage: String,
+            duration: String
+        }]
+    },
     isNotifiable: { type: Boolean, default: false },
-    notifiableDisease: { type: String, default: null }, // e.g., 'Tuberculosis', 'Malaria'
+    notifiableDisease: { type: String, default: null },
     createdAt: { type: Date, default: Date.now }
 });
 
