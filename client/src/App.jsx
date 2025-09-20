@@ -6,6 +6,7 @@ import WorkerProfile from './pages/WorkerProfile';
 import GovtDashboard from './pages/GovtDashboard';
 import HealthCard from './pages/HealthCard';
 import Navbar from './components/Navbar';
+import AccessPage from './pages/AccessPage'; // Import the new page
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         <Route path="/worker/:workerId" element={<WorkerProfile />} />
         <Route path="/health-card/:workerId" element={<HealthCard />} />
         <Route path="/gov-dashboard" element={<GovtDashboard />} />
+
+        {/* --- ADD THIS NEW ROUTE --- */}
+        <Route path="/access/:workerId" element={<AccessPage />} />
       </Routes>
     </>
   );

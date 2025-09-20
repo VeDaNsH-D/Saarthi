@@ -49,7 +49,11 @@ const HealthCard = () => {
 
                 <VStack spacing={4} align="center">
                     <Box boxSize="150px" borderWidth={1} p={2} borderRadius="md">
-                        <QRCode value={worker.workerId} size={142} level={"H"} />
+                        <QRCode
+                            value={`http://localhost:5173/access/${worker.workerId}`}
+                            size={142}
+                            level={"H"}
+                        />
                     </Box>
                     <Image
                         borderRadius='full'
