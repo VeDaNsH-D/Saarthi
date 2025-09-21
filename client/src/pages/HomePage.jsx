@@ -1,13 +1,17 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
-// We will add more sections here later, like Features, Testimonials, etc.
+import StatsSection from '../components/StatsSection';
+import FeaturesSection from '../components/FeaturesSection';
 
+// We will add more sections here later
 const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      {/* <FeaturesSection /> */}
+      <StatsSection />
+      <FeaturesSection />
       {/* <TestimonialsSection /> */}
+      {/* <AppDownloadSection /> */}
     </div>
   );
 };
