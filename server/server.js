@@ -19,6 +19,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/workers', require('./routes/workerRoutes'));
 app.use('/api/records', require('./routes/recordRoutes'));
 app.use('/api/gov', require('./routes/govRoutes'));
+app.use('/api/ai', require('./routes/aiRoutes')); // <-- ADD THIS LINE
 
 
 const PORT = process.env.PORT || 5001;
