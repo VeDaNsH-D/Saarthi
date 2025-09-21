@@ -2,15 +2,17 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import StatsSection from '../components/StatsSection';
 import FeaturesSection from '../components/FeaturesSection';
+import EmergencySection from '../components/EmergencySection';
+import ImageSlider from '../components/ImageSlider';
 
-// We will add more sections here later
 const HomePage = () => {
   return (
     <div>
       <HeroSection />
       <StatsSection />
       <FeaturesSection />
-      {/* <TestimonialsSection /> */}
+      <EmergencySection />
+      <ImageSlider />
       {/* <AppDownloadSection /> */}
     </div>
   );
