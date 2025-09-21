@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast'; // Import the Toaster
 import Navbar from './components/Navbar';
-import Footer from './components/Footer'; // Import the new Footer
+import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import DoctorLogin from './pages/DoctorLogin';
 import DoctorDashboard from './pages/DoctorDashboard';
@@ -11,8 +12,9 @@ import GovtDashboard from './pages/GovtDashboard';
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
+      <Toaster position="top-center" reverseOrder={false} /> {/* Add the Toaster component here */}
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -25,7 +27,7 @@ function App() {
           {/* Define other routes for footer links as needed */}
         </Routes>
       </main>
-      <Footer /> {/* Add the Footer component here */}
+      <Footer />
     </div>
   );
 }
