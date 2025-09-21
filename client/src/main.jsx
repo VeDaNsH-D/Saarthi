@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
-import './i18n'; // Initialize i18next
+import './index.css'; // This now imports Tailwind!
+import { BrowserRouter } from 'react-router-dom';
+// import { ChakraProvider } from '@chakra-ui/react'; // REMOVE THIS
+// import theme from './theme'; // REMOVE THIS if you had one
+
+// Import i18n for internationalization
+import './i18n';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ChakraProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      {/* <ChakraProvider theme={theme}>  */} {/* REMOVE THIS LINE */}
         <App />
-      </BrowserRouter>
-    </ChakraProvider>
-  </React.StrictMode>
-);
+      {/* </ChakraProvider> */} {/* REMOVE THIS LINE */}
+    </BrowserRouter>
+  </React.StrictMode>,
+)
