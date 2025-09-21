@@ -1,53 +1,80 @@
-import {
-    Box, Flex, Heading, Spacer, Button, Menu, MenuButton, MenuList, MenuItem, HStack
-} from '@chakra-ui/react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    const { t, i18n } = useTranslation();
-    const navigate = useNavigate();
-    const token = localStorage.getItem('token');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const languages = {
-        en: 'English',
-        ml: 'മലയാളം',
-        hi: 'हिन्दी',
-        bn: 'বাংলা'
-    };
+  // This will eventually link to our real login page
+  const handleLogin = () => {
+    console.log("Login button clicked");
+    // We will navigate to the login page here later
+  };
 
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('doctorName');
-        navigate('/');
-    };
+  return (
+    <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
 
-    return (
-        <Flex as="nav" p={4} bg="teal.500" color="white" alignItems="center">
-            <Heading size="md">{t('appName')}</Heading>
-            <Spacer />
-            <HStack spacing={4}>
-                {token && <Button as={NavLink} to="/dashboard" variant="ghost">{t('doctorDashboard')}</Button>}
-                <Button as={NavLink} to="/gov-dashboard" variant="ghost">{t('govtDashboard')}</Button>
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center">
+              <img
+                className="h-16 w-auto"
+                src="/saarthi-logo.png"
+                alt="Saarthi Logo"
+              />
+            </Link>
+          </div>
 
-                <Menu>
-                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                        {languages[i18n.language]}
-                    </MenuButton>
-                    <MenuList color="black">
-                        {Object.keys(languages).map(lang => (
-                            <MenuItem key={lang} onClick={() => i18n.changeLanguage(lang)}>
-                                {languages[lang]}
-                            </MenuItem>
-                        ))}
-                    </MenuList>
-                </Menu>
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex md:items-center md:space-x-8">
+            <Link to="/" className="text-gray-600 hover:text-indigo-600 font-medium">Home</Link>
+            <Link to="/features" className="text-gray-600 hover:text-indigo-600 font-medium">Features</Link>
+            <Link to="/about" className="text-gray-600 hover:text-indigo-600 font-medium">About Us</Link>
+            {/* Link to the existing Government Dashboard */}
+            <Link to="/gov-dashboard" className="text-gray-600 hover:text-indigo-600 font-medium">Govt. Dashboard</Link>
+          </div>
 
-                {token && <Button colorScheme="red" onClick={handleLogout}>Logout</Button>}
-            </HStack>
-        </Flex>
-    );
+          {/* Login/Register Buttons & Mobile Menu Button */}
+          <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
+               {/* This will link to your existing DoctorLogin page */}
+              <Link to="/" className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+                Doctor Login
+              </Link>
+            </div>
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-600 hover:text-indigo-600 focus:outline-none">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                  )}
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden py-4">
+            <Link to="/" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</Link>
+            <Link to="/features" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Features</Link>
+            <Link to="/about" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">About Us</Link>
+            <Link to="/gov-dashboard" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Govt. Dashboard</Link>
+            <div className="mt-4 px-4">
+              <Link to="/" className="w-full text-center bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+                Doctor Login
+              </Link>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
+  );
 };
 
 export default Navbar;

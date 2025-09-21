@@ -12,17 +12,19 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<DoctorLogin />} />
-        <Route path="/dashboard" element={<DoctorDashboard />} />
-        <Route path="/register-worker" element={<RegisterWorker />} />
-        <Route path="/worker/:workerId" element={<WorkerProfile />} />
-        <Route path="/health-card/:workerId" element={<HealthCard />} />
-        <Route path="/gov-dashboard" element={<GovtDashboard />} />
+      <main>
+        <Routes>
+          <Route path="/" element={<DoctorLogin />} />
+          <Route path="/dashboard" element={<DoctorDashboard />} />
+          <Route path="/register-worker" element={<RegisterWorker />} />
+          <Route path="/worker/:workerId" element={<WorkerProfile />} />
+          <Route path="/health-card/:workerId" element={<HealthCard />} />
+          <Route path="/gov-dashboard" element={<GovtDashboard />} />
 
-        {/* --- ADD THIS NEW ROUTE --- */}
-        <Route path="/access/:workerId" element={<AccessPage />} />
-      </Routes>
+          {/* --- ADD THIS NEW ROUTE --- */}
+          <Route path="/access/:workerId" element={<AccessPage />} />
+        </Routes>
+      </main>
     </>
   );
 }
