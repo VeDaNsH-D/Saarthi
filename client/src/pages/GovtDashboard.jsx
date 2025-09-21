@@ -48,7 +48,7 @@ const GovtDashboard = () => {
                                     <AlertIcon boxSize='40px' mr={0} />
                                     <AlertTitle mt={4} mb={1} fontSize='lg'>
                                         High Alert: {spot._id.disease}
-                                    </Aler tTitle>
+                                    </AlertTitle>
                                     <AlertDescription maxWidth='sm'>
                                         <strong>{spot.count} cases</strong> reported in the last 14 days in <strong>{spot._id.panchayat}, {spot._id.district}</strong>. Immediate surveillance recommended.
                                     </AlertDescription>

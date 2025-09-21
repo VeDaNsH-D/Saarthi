@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center space-x-4">
                {/* This will link to your existing DoctorLogin page */}
-              <Link to="/" className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+              <Link to="/login" className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
                 Doctor Login
               </Link>
             </div>
@@ -66,7 +66,7 @@ const Navbar = () => {
             <Link to="/about" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">About Us</Link>
             <Link to="/gov-dashboard" className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Govt. Dashboard</Link>
             <div className="mt-4 px-4">
-              <Link to="/" className="w-full text-center bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
+              <Link to="/login" className="w-full text-center bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
                 Doctor Login
               </Link>
             </div>
